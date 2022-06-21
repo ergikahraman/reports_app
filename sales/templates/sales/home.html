@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %} <!-- sayfada formların alt alta yer alması için-->
+
+
+{% block title %} 
+home
+
+{% endblock %}
+
+{% block content %} 
+{{h}}
+<hr>
+
+<form action="" method="POST">
+    {% csrf_token %} <!--İstek sahteciliği-CSRF saldırısına karşı korunmak için yazılan kod -->
+    {{form }}
+    <button type="submit" class="btn btn-primary mt-3">Search</button>
+    
+</form>
+<br>
+{% if sales_df %}
+    {{sales_df| safe }}
+
+{% else %}
+    <h3> no data</h3>
+
+{% endif %}
+
+
+{% endblock %}
